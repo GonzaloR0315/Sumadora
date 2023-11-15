@@ -1,5 +1,3 @@
-package com.example.sumadora
-
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -12,22 +10,29 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.*
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHost
+import com.example.sumadora.InputScreen
+import com.example.sumadora.Resultados
+import com.example.sumadora.Screen
+import com.example.sumadora.SumadoraScreen
 import com.example.sumadora.ui.theme.SumadoraTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Crear el viewModel
+        val sumadoraViewModel: SumadoraScreen = viewModel()
+
         setContent {
-            SumadoraApp()
+            SumadoraApp(viewModel = sumadoraViewModel)
         }
     }
 }
 
 @Composable
-fun SumadoraApp() {
+fun SumadoraApp(viewModel: SumadoraScreen) {
     val navController = rememberNavController()
 
     NavHost(
