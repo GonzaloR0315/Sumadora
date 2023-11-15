@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Sumadora</string>
+    <string name="realizados">Realizados</string>
+
+    <string name="valor1">Valor 1</string>
+    <string name="valor2">Valor 2</string>
+    <string name="Suma">+</string>
+    <string name="resultados">Resultados</string>
+
+    <string name="valor1Textbox">Valor 1</string>
+    <string name="valor2Textbox">Valor 2</string>
+
+    <string name="volver">Volver</string>
+</resources>
