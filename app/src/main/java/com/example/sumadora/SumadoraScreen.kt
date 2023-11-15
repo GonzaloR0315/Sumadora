@@ -1,36 +1,37 @@
+// SumadoraScreen.kt
 package com.example.sumadora
-// SumadoraViewModel.kt
-import androidx.compose.runtime.getValue
+
 import androidx.lifecycle.ViewModel
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 
 class SumadoraScreen : ViewModel() {
-    // Estado para los números de las cajas de texto
-    var numero1 by mutableStateOf("")
-    var numero2 by mutableStateOf("")
+    // Valores de la Suma
+    var valor1 by mutableStateOf("")
+    var valor2 by mutableStateOf("")
 
-    // Estado para el resultado de la operación actual
+    // Operación actual
     var resultadoActual by mutableStateOf("")
 
-    // Lista para almacenar resultados anteriores
+    // Lista
     var resultadosAnteriores = mutableListOf<String>()
 
-    // Función para realizar la suma
+    //  Suma
     fun sumar() {
-        val num1 = numero1.toIntOrNull() ?: 0
-        val num2 = numero2.toIntOrNull() ?: 0
+        val num1 = valor1.toIntOrNull() ?: 0
+        val num2 = valor2.toIntOrNull() ?: 0
 
         val resultado = num1 + num2
 
-        // Actualizar resultado actual
-        resultadoActual = "La suma es: $resultado"
+        // resultado, no se como meter stringResource(R.string.resultado)
+        resultadoActual = "Resultado: $resultado"
 
-        // Guardar resultado en la lista de resultados anteriores
+        // añade suma a la lista
         resultadosAnteriores.add("$num1 + $num2 = $resultado")
 
-        // Limpiar los campos de entrada
-        numero1 = ""
-        numero2 = ""
+        // Limpiacampos
+        valor1 = ""
+        valor2 = ""
     }
 }

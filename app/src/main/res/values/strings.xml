@@ -7,6 +7,8 @@
     <string name="Suma">+</string>
     <string name="resultados">Resultados</string>
 
+    <string name="resultado">Resultados: </string>
+
     <string name="valor1Textbox">Valor 1</string>
     <string name="valor2Textbox">Valor 2</string>
 
