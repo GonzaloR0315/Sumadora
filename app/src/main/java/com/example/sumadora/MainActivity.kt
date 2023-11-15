@@ -1,7 +1,6 @@
 import android.os.Bundle
 import com.example.sumadora.SumadoraScreen
 import com.example.sumadora.Screen
-import androidx.navigation.NavHost
 import com.example.sumadora.InputScreen
 import com.example.sumadora.Resultados
 import androidx.activity.ComponentActivity
@@ -10,13 +9,13 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
 
         val sumadoraScreen: SumadoraScreen = viewModel()
         setContent {
@@ -38,13 +37,11 @@ fun SumadoraApp(viewModel: SumadoraScreen) {
                 navController.navigate(Screen.Result.withArgs(result))
             }
         }
-        composable(Screen.Result.route) {backStackEntry ->
+        composable(Screen.Result.route) { backStackEntry ->
             val result = requireNotNull(backStackEntry.arguments?.getString(Screen.Result.ARG_RESULT))
-            Resultados(navController = navController, viewModel = viewModel, result = result) {
+            Resultados(result = result) {
                 navController.navigate(Screen.Input.route)
             }
         }
     }
 }
-
-
